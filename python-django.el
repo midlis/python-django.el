@@ -685,6 +685,8 @@ else:
     from collections import OrderedDict
     apps.populate(installed_apps=settings.INSTALLED_APPS)
     app_paths = OrderedDict((app.label, app.path) for app in apps.get_app_configs())
+for k,v in app_paths.items():
+    app_paths[k] = os.path.abspath(v)
 print(json.dumps(app_paths), end='')")))))
     python-django-info--get-app-paths-cache))
 
